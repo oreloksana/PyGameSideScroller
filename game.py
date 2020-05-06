@@ -74,7 +74,7 @@ class player(object):
                 self.slideCount = 0
                 self.slideUp = False
                 self.runCount = 0
-                self.hitbox = (self.x + 4, self.y, self.width - 24, self.height - 10)
+                self.hitbox = (self.x + 4, self.y, self.width - 34, self.height - 20)
             win.blit(self.slide[self.slideCount // 10], (self.x, self.y))
             self.slideCount +=1
 
@@ -86,7 +86,7 @@ class player(object):
             win.blit(self.run[self.runCount // 6], (self.x, self.y))
             self.runCount += 1
             self.hitbox = (self.x + 4, self.y, self.width - 24, self.height - 13)
-        pygame.draw.rect(win, (255, 0, 0), self.hitbox, 2)
+        #pygame.draw.rect(win, self.hitbox, 2)
 
 
 class saw(object):
@@ -107,7 +107,7 @@ class saw(object):
             self.count = 0
         win.blit(pygame.transform.scale(self.img[self.count // 2], (64, 64)), (self.x, self.y))
         self.count += 1
-        pygame.draw.rect(win, (255, 0, 0), self.hitbox, 2)
+        #pygame.draw.rect(win, self.hitbox, 2)
 
 
     def collide(self, rect):
@@ -122,8 +122,8 @@ class spike(saw):
 
     def draw(self, win):
         self.hitbox = (self.x + 10, self.y, 28, 315)
+        # pygame.draw.rect(win, (255,0,0), self.hitbox, 2)
         win.blit(self.img, (self.x, self.y))
-        pygame.draw.rect(win, (255, 0, 0), self.hitbox, 2)
 
 
     def collide(self, rect):
